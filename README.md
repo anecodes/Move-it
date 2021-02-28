@@ -2,7 +2,7 @@
 
 
 
-![](/home/juliane/Área de Trabalho/screenshot.png)
+![alt text](https://github.com/anecodes/Move-it/blob/master/screenshot.png?raw=true)
 
 ###### Layout desenvolvido por [Tiago Luchtenberg](https://instagram.com/tiagoluchtenberg) no [Figma](https://www.figma.com/file/eF7fMFpg63w7A0esXNg8bQ/Move.it-1.0-(Copy)?node-id=160%3A2761)!
 
