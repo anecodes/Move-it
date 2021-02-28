@@ -1,6 +1,7 @@
 # Move.it Application - NLW#04 (Trilha ReactJS) 🏃‍♀️
 
-
+![logo da aplicação](https://github.com/anecodes/Move-it/blob/master/moveit-next/public/logo-full.svg)
+---
 
 ![screenshot da aplicação](https://github.com/anecodes/Move-it/blob/master/screenshot.png?raw=true)
 
