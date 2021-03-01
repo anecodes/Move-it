@@ -71,3 +71,35 @@
 .container form ghLogin input:valid + button {
   background: var(--green);
 }
+
+@media (max-width: 800px) {
+  .container {
+    height: auto;
+    width: 30%;
+  }
+
+  .container form {
+    display: flex;
+    float: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  .moveItBg {
+    height: 100%;
+  }
+
+  .moveItBg img {
+    margin-right: 100px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.2rem;
+    width: 100%;
+  }
+}

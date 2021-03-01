@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from "next/head";
 import { GetServerSideProps } from "next";
 
@@ -12,30 +13,24 @@ import { CountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 import Link from 'next/link';
 
-interface userGitHub {
+interface IUserGitHub {
     name: string;
-    iconpr: string;
+    avatar_url: string;
 }
 
 interface userData {
-    username: userGitHub;
+    user: IUserGitHub;
     level: number;
     currentExperience: number;
     challengesCompleted: number;
 }
 
-export default function userConfig ({
-    username,
-    level,
-    challengesCompleted,
-    currentExperience
-}: userData) {
+const Home: React.FC<userData> = (props) => {
+  const { user } = props;
+
     return (
       
-        <ChallengesProvider
-          level={level}
-          currentExperience={currentExperience}
-          challengesCompleted={challengesCompleted}
+        <ChallengesProvider {...props}
         >
 
             <div className={styles.sidebar}>
@@ -54,7 +49,7 @@ export default function userConfig ({
             <CountdownProvider>
               <section>
                 <div>
-                  <Profile username={username} />
+                  <Profile {...user} />
                   <CompletedChallenges />
                   <Countdown />
                 </div>
@@ -65,22 +60,24 @@ export default function userConfig ({
             </CountdownProvider>
           </div>
         </ChallengesProvider>
-      );
+      )
     }
 
-    export const getServerSideProps: GetServerSideProps = async ({req, params}) => {
-        const { level, currentExperience, challengesCompleted } = req.cookies;
-        const { user } = params;
-        const login = await fetch (`https://api.github.com/users/${user}`);
-        const username = await login.json();
+    export const getServerSideProps: GetServerSideProps = async (ctx) => {
+        const { username } = ctx.params;
+        const login = await fetch (`https://api.github.com/users/${username}`);
+        const user = await login.json();
+
+        const {level, currentExperience, challengesCompleted} = ctx.req.cookies;
       
         return {
           props: {
-            username,
+            user,
             level: Number(level),
             currentExperience: Number(currentExperience),
             challengesCompleted: Number(challengesCompleted)
           }
         }
       }
-      
+    
+export default Home;
