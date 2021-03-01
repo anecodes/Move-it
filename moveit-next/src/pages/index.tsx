@@ -1,62 +1,46 @@
-import Head from "next/head";
-import { GetServerSideProps } from "next";
+import { FormEvent, useState } from 'react';
+import { FiArrowRight } from 'react-icons/fi';
+import { useRouter } from 'next/router';
+import styles from '../styles/pages/userConfig.module.css';
 
-import { Countdown } from "../components/Countdown";
-import { CompletedChallenges } from "../components/CompletedChallenges";
-import { ExperienceBar } from "../components/ExperienceBar";
-import { Profile } from "../components/Profile";
-import { ChallengeBox } from "../components/ChallengeBox";
+export default function Home() {
+  const { push } = useRouter();
 
-import styles from "../styles/pages/Home.module.css";
-import { CountdownProvider } from "../contexts/CountdownContext";
-import { ChallengesProvider } from "../contexts/ChallengesContext";
+  const [ user, setUser ] = useState('');
 
-interface HomeProps {
-  level:number;
-  currentExperience:number;
-  challengesCompleted:number;
-}
-
-export default function Home(props: HomeProps) {
-  console.log(props);
+  function sendInfo (e: FormEvent) {
+    e.preventDefault ();
+    push(`/${user}`)
+  }
 
   return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
+    <div>
+       <title>Início | move.it</title>
       <div className={styles.container}>
-        <Head>
-          <title>Início | move.it</title>
-        </Head>
-        <ExperienceBar />
+        
+        <img className={styles.moveItBg} src="/moveit-bg.svg" alt="moveit logo"/>
+        
+        <form onSubmit={sendInfo}>
+          <img src="/logo-white.svg" alt="moveit logo white"/>
+          <h1>Olá! Pronto para se exercitar?</h1>
+          <span>
+            <img src="gh-logo.svg" alt="github logo"/>
+            <p>Faça login com seu Github
+                para começar</p>
+          </span>
 
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
+            <div className={styles.ghLogin}>
+              <input type="text" placeholder="Username"
+              onChange={e => setUser(e.target.value)}
+              required/>
+
+              <button type="submit">
+                <FiArrowRight size={24} color="#FFFFFF"/>
+
+              </button>
             </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
-      </div>
-    </ChallengesProvider>
-  );
-}
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
-
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted)
-    }
-  }
+          </form>
+          </div>
+         </div>
+  )
 }
