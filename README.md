@@ -3,7 +3,7 @@
 ![logo da aplicação](https://github.com/anecodes/Move-it/blob/master/moveit-next/public/logo-full.svg)
 ---
 
-![screenshot da aplicação](https://github.com/anecodes/Move-it/blob/master/screenshot.png?raw=true)
+![screencast da aplicação](https://github.com/anecodes/Move-it/blob/master/screencast.gif?raw=true)
 
 ###### Layout desenvolvido por [Tiago Luchtenberg](https://instagram.com/tiagoluchtenberg) no [Figma](https://www.figma.com/file/eF7fMFpg63w7A0esXNg8bQ/Move.it-1.0-(Copy)?node-id=160%3A2761)!
 
