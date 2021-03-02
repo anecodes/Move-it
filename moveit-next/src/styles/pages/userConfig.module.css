@@ -6,7 +6,7 @@
 }
 
 .moveItBg {
-  height: 48rem;
+  height: 40rem;
 }
 
 .container form {
@@ -28,7 +28,7 @@
   width: 15rem;
   height: 3rem;
   display: flex;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .container form span img {
@@ -99,6 +99,38 @@
     display: flex;
     flex-direction: column;
 
+    padding: 0.2rem;
+    width: 100%;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    height: auto;
+    width: 30%;
+  }
+
+  .container form {
+    display: flex;
+    float: center;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 40%;
+    margin-bottom: 100rem;
+  }
+
+  .moveItBg {
+    height: 100%;
+  }
+
+  .moveItBg img {
+    margin-right: 100px;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
     padding: 0.2rem;
     width: 100%;
   }

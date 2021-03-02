@@ -22,10 +22,10 @@ export default function Home() {
         
         <form onSubmit={sendInfo}>
           <img src="/logo-white.svg" alt="moveit logo white"/>
-          <h1>Olá! Pronto para se exercitar?</h1>
+          <h1>Olá! Pronte para se exercitar? </h1>
           <span>
             <img src="gh-logo.svg" alt="github logo"/>
-            <p>Faça login com seu Github
+            <p>Faça login com o Github
                 para começar</p>
           </span>
 
