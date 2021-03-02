@@ -16,6 +16,7 @@ export default function Home() {
   return (
     <div>
        <title>Início | move.it</title>
+       <div className={styles.animateAppear}>
       <div className={styles.container}>
         
         <img className={styles.moveItBg} src="/moveit-bg.svg" alt="moveit logo"/>
@@ -41,6 +42,7 @@ export default function Home() {
             </div>
           </form>
           </div>
+         </div>
          </div>
   )
 }

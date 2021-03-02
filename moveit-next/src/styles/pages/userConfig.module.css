@@ -75,7 +75,9 @@
 @media (max-width: 800px) {
   .container {
     height: auto;
-    width: 30%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
   }
 
   .container form {
@@ -106,7 +108,7 @@
 
 @media (max-width: 400px) {
   .container {
-    height: auto;
+    height: 50%;
     width: 30%;
   }
 
@@ -117,11 +119,10 @@
     justify-content: center;
     flex-direction: column;
     width: 40%;
-    margin-bottom: 100rem;
   }
 
   .moveItBg {
-    height: 100%;
+    height: auto;
   }
 
   .moveItBg img {
@@ -134,4 +135,21 @@
     padding: 0.2rem;
     width: 100%;
   }
+}
+
+/*animações*/
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animateAppear {
+  animation-name: appear;
+  animation-duration: 900ms;
+  animation-fill-mode: backwards;
 }
